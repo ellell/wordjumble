@@ -10,7 +10,29 @@ module.exports = function (opts) {
   rowLabels.forEach(function (label) {
     container.appendChild(createRow(label, nrOfCols))
   });
+
+  return {
+    getValues: getValues(container)
+  }
 };
+
+function getValues (container) {
+  return function () {
+    var values = [];
+    var rows = container.querySelectorAll('.row');
+    [].forEach.call(rows, function (row) {
+      var categoryValues = [];
+      var inputs = row.querySelectorAll('input');
+      [].forEach.call(inputs, function (input) {
+        categoryValues.push(input.value);
+      });
+
+      values.push(categoryValues);
+    });
+
+    return values;
+  };
+}
 
 function createRow (label, nrOfCols) {
   return h('div.row',

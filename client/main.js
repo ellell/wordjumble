@@ -1,7 +1,7 @@
 'use strict';
 
 var on = require('dom-events').on;
-var renderInputTable = require('./input-table');
+var setupInputTable = require('./input-table');
 var renderResult = require('./result-table');
 var defaultOpts = {
   rowLabels: ['känsla', 'färg', 'form'],
@@ -9,12 +9,13 @@ var defaultOpts = {
   container: document.querySelector('#input')
 };
 
-renderInputTable(defaultOpts);
+var inputTable = setupInputTable(defaultOpts);
 
 var generateBtn = document.querySelector('.generate');
 on(generateBtn, 'click', function (e) {
   e.preventDefault();
   renderResult({
-    container: document.querySelector('#result')
+    container: document.querySelector('#result'),
+    values: inputTable.getValues()
   });
 });
