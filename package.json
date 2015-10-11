@@ -20,6 +20,7 @@
   "dependencies": {
     "autoprefixer": "^6.0.3",
     "browserify": "^11.2.0",
+    "dom-events": "^0.1.1",
     "gulp": "^3.9.0",
     "gulp-postcss": "^6.0.1",
     "gulp-sourcemaps": "^1.6.0",
