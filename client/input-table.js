@@ -12,9 +12,28 @@ module.exports = function (opts) {
   });
 
   return {
-    getValues: getValues(container)
+    getValues: getValues(container),
+    validate: validate(container)
   }
 };
+
+function validate (container) {
+  return function () {
+    var isValid = true;
+    var inputs = container.querySelectorAll('input');
+    [].forEach.call(inputs, function (input) {
+      input.classList.remove('error');
+      if (!input.value) {
+        isValid = false;
+        setTimeout(function () {
+          input.classList.add('error');
+        }, 40);
+      }
+    });
+
+    return isValid;
+  };
+}
 
 function getValues (container) {
   return function () {
@@ -46,7 +65,10 @@ function createCols (nrOfCols) {
   for (var i = 0; i < nrOfCols; i++) {
     cols.push(
       h('span.cell.value',
-        h('input', { type: 'text' })
+        h('input', {
+          type: 'text',
+          onfocus: function () { console.log('focus', this.classList.remove('error'))} 
+        })
       )
     );
   }

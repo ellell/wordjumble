@@ -19,6 +19,10 @@ var slides = setupSlides({
 var generateBtn = document.querySelector('.generate');
 on(generateBtn, 'click', function (e) {
   e.preventDefault();
+  if (!inputTable.validate()) {
+    return;
+  }
+
   renderResult({
     container: document.querySelector('#result-table'),
     values: inputTable.getValues()
