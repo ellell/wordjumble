@@ -10,6 +10,7 @@ body, html {
 
 body {
   background-color: #3498db;
+  overflow: hidden;
 }
 
 #main-container {
