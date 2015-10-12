@@ -19,13 +19,16 @@ module.exports = function (opts) {
     });
   });
 
+  var row = h('.row');
   groupedRandomValues.forEach(function (values) {
-    container.appendChild(createBox(values));
+    row.appendChild(createBox(values));
   });
+
+  container.appendChild(row);
 };
 
 function createBox (values) {
-  return h('span.result-box',
+  return h('span.result-box.cell',
     values.map(function (value) {
       return h('span.result-box-value', value);
     })

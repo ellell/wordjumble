@@ -36,7 +36,7 @@ function getValues (container) {
 
 function createRow (label, nrOfCols) {
   return h('div.row',
-    h('span.label.bold', label),
+    h('span.cell.label.bold', label),
     createCols(nrOfCols)
   );
 }
@@ -45,7 +45,7 @@ function createCols (nrOfCols) {
   var cols = [];
   for (var i = 0; i < nrOfCols; i++) {
     cols.push(
-      h('span.col',
+      h('span.cell.value',
         h('input', { type: 'text' })
       )
     );
