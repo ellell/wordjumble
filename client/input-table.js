@@ -36,7 +36,7 @@ function getValues (container) {
 
 function createRow (label, nrOfCols) {
   return h('div.row',
-    h('span.label', label),
+    h('span.label.bold', label),
     createCols(nrOfCols)
   );
 }

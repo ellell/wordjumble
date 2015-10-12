@@ -1,3 +1,83 @@
-body, html {
+@import 'reset.css';
+@import 'fonts.css';
+
+body {
+  background-color: #3498db;
+}
+
+#main-container {
+  width: 90%;
+  margin: 40px auto;
+}
+
+#input-table {
+  padding-top: 40px;
+}
+
+.row {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.label, .col {
+  width: 25%;
+  display: inline-block;
+  max-width: 200px;
+  vertical-align: middle;
+  height: 150px;
+  margin: 20px 10px;
+}
+
+.label {
+  text-transform: uppercase;
+  color: #eee;
+  font-size: 33px;
+  text-align: right;
+  padding-right: 10px;
+  background-color: #2980b9;
+  line-height: 150px;
+}
+
+.col input {
   height: 100%;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  border: none;
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.generate {
+  text-decoration: none;
+  color: #fff;
+  background-color: #e67e22;
+  padding: 30px 40px;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.generate:hover {
+  background-color: #d35400;
+}
+
+#result-table {
+  padding: 40px;
+  text-align: center;
+}
+
+.result-box {
+  display: inline-block;
+  background-color: #fff;
+  margin: 20px 10px;
+  height: 100px;
+  width: 22%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 25px;
+}
+
+.result-box-value {
+  display: block;
 }
