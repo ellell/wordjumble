@@ -39,11 +39,17 @@ module.exports = function (opts) {
 };
 
 function setActive (slide) {
+  if (!slide.style) {
+    slide.style = {};
+  }
   slide.style.top = 0;
 }
 
 function setInactive (slide) {
   var slideInDir = slide.dataset.slideIn;
+  if (!slide.style) {
+    slide.style = {};
+  }
   if (slideInDir === 'up') {
     slide.style.top = '100%';
   } else {

@@ -7,24 +7,17 @@ module.exports = function (opts) {
   var values = opts.values;
 
   container.innerHTML = '';
-  var groupedRandomValues = [];
-  values.forEach(function (categoryValues) {
-    randomSort(categoryValues);
-    categoryValues.forEach(function (catValue, i) {
-      if (!groupedRandomValues[i]) {
-        groupedRandomValues[i] = [];
-      }
 
-      groupedRandomValues[i].push(catValue);
-    });
-  });
+  var rows = values.length;
+  var cols = values[0].length;
 
-  var row = h('.row');
-  groupedRandomValues.forEach(function (values) {
-    row.appendChild(createBox(values));
-  });
-
-  container.appendChild(row);
+  for (var i = 0; i < rows; i++) {
+    var row = h('.row');
+    for (var j = 0; j < cols; j++) {
+      row.appendChild(createBox(values.map(randomValue)));
+    }
+    container.appendChild(row);
+  }
 };
 
 function createBox (values) {
@@ -39,4 +32,9 @@ function randomSort(array) {
   return array.sort(function() {
     return 0.5 - Math.random();
   });
+}
+
+function randomValue (array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
 }
