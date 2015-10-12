@@ -19,13 +19,17 @@ module.exports = function (opts) {
   function next () {
     setInactive(slides[currentActiveSlide]);
     currentActiveSlide++;
-    setActive(slides[currentActiveSlide]);
+    setTimeout(function () {
+      setActive(slides[currentActiveSlide]);
+    }, 200);
   }
 
   function prev () {
     setInactive(slides[currentActiveSlide]);
     currentActiveSlide--;
-    setActive(slides[currentActiveSlide]);
+    setTimeout(function () {
+      setActive(slides[currentActiveSlide]);
+    }, 200);
   }
 
   return {
