@@ -1,5 +1,10 @@
 .slide {
   height: 100%;
   position: absolute;
-  
+  opacity: 0;
+  transition: opacity 0.4s ease, top 0.4s ease;
+}
+
+.rendered .slide {
+  opacity: 1;
 }

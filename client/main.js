@@ -1,6 +1,7 @@
 'use strict';
 
 var on = require('dom-events').on;
+var setupSlides = require('./slides');
 var setupInputTable = require('./input-table');
 var renderResult = require('./result-table');
 var defaultOpts = {
@@ -11,6 +12,10 @@ var defaultOpts = {
 
 var inputTable = setupInputTable(defaultOpts);
 
+var slides = setupSlides({
+  container: document.querySelector('#main-container')
+});
+
 var generateBtn = document.querySelector('.generate');
 on(generateBtn, 'click', function (e) {
   e.preventDefault();
@@ -18,6 +23,13 @@ on(generateBtn, 'click', function (e) {
     container: document.querySelector('#result-table'),
     values: inputTable.getValues()
   });
+  slides.next();
+});
+
+var backBtn = document.querySelector('.back');
+on(backBtn, 'click', function (e) {
+  e.preventDefault();
+  slides.prev();
 });
 
 renderResult({
