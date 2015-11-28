@@ -14,7 +14,12 @@ module.exports = function (opts) {
   for (var i = 0; i < rows; i++) {
     var row = h('.row');
     for (var j = 0; j < cols; j++) {
-      row.appendChild(createBox(values.map(randomValue)));
+      row.appendChild(
+        createBox(values
+          .map(randomValue)
+          .sort(random)
+        )
+      );
     }
     container.appendChild(row);
   }
@@ -28,10 +33,8 @@ function createBox (values) {
   );
 }
 
-function randomSort(array) {
-  return array.sort(function() {
-    return 0.5 - Math.random();
-  });
+function random () {
+  return 0.5 - Math.random();
 }
 
 function randomValue (array) {
