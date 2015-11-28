@@ -67,7 +67,7 @@ function createCols (nrOfCols) {
       h('span.cell.value',
         h('input', {
           type: 'text',
-          onfocus: function () { console.log('focus', this.classList.remove('error'))} 
+          onfocus: function () { this.classList.remove('error') } 
         })
       )
     );
