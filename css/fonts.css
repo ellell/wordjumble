@@ -1,8 +1,10 @@
 body {
-  font-family: verdana;
+  font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: 1.2px;
 }
 
 .bold {
+  font-family: 'Oswald', sans-serif;
   font-weight: bold;
+  letter-spacing: 2px;
 }

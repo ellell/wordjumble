@@ -58,9 +58,10 @@ body {
   text-align: center;
   box-sizing: border-box;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
   opacity: 0.9;
   border: 5px solid #fff;
+  font-family: inherit;
 }
 
 .value input.error {
@@ -116,4 +117,6 @@ body {
 
 .result-box-value {
   display: block;
+  font-size: 20px;
+  line-height: 30px;
 }
